@@ -1,0 +1,26 @@
+"C:\Program Files\JetBrains\CLion 2025.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2025.1/bin/ninja/win/x64/ninja.exe" -DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=conan_provider.cmake -G Ninja -S C:\Users\diego\Downloads\pr0\pr0_conan -B C:\Users\diego\Downloads\pr0\pr0_conan\cmake-build-debug
+Error in Conan initialization: Bad conf definition: [settings]CMake Error at conan_provider.cmake:277 (message):
+  CMake-Conan: Error when trying to run Conan
+Call Stack (most recent call first):
+  conan_provider.cmake:310 (conan_get_version)
+  CMakeLists.txt:26 (find_package)
+
+
+CMake Warning at CMakeLists.txt:26 (find_package):
+  By not providing "Findopengl_system.cmake" in CMAKE_MODULE_PATH this
+  project has asked CMake to find a package configuration file provided by
+  "opengl_system", but CMake did not find one.
+
+  Could not find a package configuration file provided by "opengl_system"
+  with any of the following names:
+
+    opengl_systemConfig.cmake
+    opengl_system-config.cmake
+
+  Add the installation prefix of "opengl_system" to CMAKE_PREFIX_PATH or set
+  "opengl_system_DIR" to a directory containing one of the above files.  If
+  "opengl_system" provides a separate development package or SDK, be sure it
+  has been installed.
+
+
+-- Configuring incomplete, errors occurred!
