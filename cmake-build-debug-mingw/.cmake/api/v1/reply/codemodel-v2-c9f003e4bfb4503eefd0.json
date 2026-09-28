@@ -9,7 +9,7 @@
 					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.24"
+						"string" : "3.25"
 					},
 					"projectIndex" : 0,
 					"source" : ".",
@@ -27,7 +27,7 @@
 					[
 						0
 					],
-					"name" : "pr1",
+					"name" : "pr1b",
 					"targetIndexes" : 
 					[
 						0
@@ -38,9 +38,9 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "pr1::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-pr1-Debug-fa1c31dc78bfef19db16.json",
-					"name" : "pr1",
+					"id" : "pr1b::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pr1b-Debug-2fc4056c8e140f911ca3.json",
+					"name" : "pr1b",
 					"projectIndex" : 0
 				}
 			]

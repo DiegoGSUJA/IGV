@@ -81,4 +81,9 @@ inline double igvPunto3D::operator[] ( const unsigned char idx ) const
 {  return c[idx];
 }
 
+// NUEVO: operadores de suma y resta entre puntos/vectores, como funciones
+// libres (fuera de la clase), no como métodos miembro
+igvPunto3D operator+ ( const igvPunto3D& a, const igvPunto3D& b );
+igvPunto3D operator- ( const igvPunto3D& a, const igvPunto3D& b );
+
 #endif   // __IGVPUNTO3D

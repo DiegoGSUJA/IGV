@@ -162,11 +162,12 @@ void igvEscena3D::trasladar_objeto(double dx, double dy, double dz) {
    glPopMatrix ();
 }
 
-void igvEscena3D::escalar_objeto(double factor){
+void igvEscena3D::escalar_objeto ( double factor )
+{  glPushMatrix ();
    glLoadIdentity ();
-      glMultMatrixf ( S1[objetoSeleccionado] );
-      glScalef ( factor, factor, factor );
-      glGetFloatv ( GL_MODELVIEW_MATRIX, S1[objetoSeleccionado] );
+   glMultMatrixf ( S1[objetoSeleccionado] );
+   glScalef ( factor, factor, factor );
+   glGetFloatv ( GL_MODELVIEW_MATRIX, S1[objetoSeleccionado] );
    glPopMatrix ();
 }
 

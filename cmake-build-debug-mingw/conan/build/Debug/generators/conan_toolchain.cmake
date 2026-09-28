@@ -23,9 +23,6 @@ endif()
 
 ########## 'compilers' block #############
 
-set(CMAKE_C_COMPILER "C:/Program Files/JetBrains/CLion 2025.1/bin/mingw/bin/gcc.exe")
-set(CMAKE_CXX_COMPILER "C:/Program Files/JetBrains/CLion 2025.1/bin/mingw/bin/g++.exe")
-set(CMAKE_RC_COMPILER "C:/Program Files/JetBrains/CLion 2025.1/bin/mingw/bin/windres.exe")
 
 
 ########## 'arch_flags' block #############

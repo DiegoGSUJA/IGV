@@ -74,3 +74,11 @@ void igvPunto3D::set ( const double &x, const double &y, const double &z )
    c[Y] = y;
    c[Z] = z;
 }
+
+igvPunto3D operator+ ( const igvPunto3D& a, const igvPunto3D& b )
+{  return igvPunto3D ( a[X] + b[X], a[Y] + b[Y], a[Z] + b[Z] );
+}
+
+igvPunto3D operator- ( const igvPunto3D& a, const igvPunto3D& b )
+{  return igvPunto3D ( a[X] - b[X], a[Y] - b[Y], a[Z] - b[Z] );
+}
