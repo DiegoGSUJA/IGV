@@ -101,7 +101,7 @@ void igvEscena3D::visualizar ( void )
    glMultMatrixf ( R1[1] ); // rotación acumulada
    pintar_escalera ();
    glPopMatrix ();
-
+/**
    // ---- Objeto 3: tubería ----
    GLfloat color_tuberia[] = { 0.1, 0.1, 0.6, 1.0 }; // azul
       glMaterialfv ( GL_FRONT, GL_DIFFUSE, color_tuberia );
@@ -112,7 +112,15 @@ void igvEscena3D::visualizar ( void )
       glMultMatrixf ( R1[2] );
       pintar_tuberia ();
    glPopMatrix ();
+*/
 
+   // ---- Objeto 3: chuche (chupa-chups) ----
+   glPushMatrix ();
+   glMultMatrixf ( T1[2] );
+   glMultMatrixf ( S1[2] );
+   glMultMatrixf ( R1[2] );
+   pintar_chuche ();
+   glPopMatrix ();
    glPopMatrix (); // restaura la matriz de modelado
 }
 
@@ -166,6 +174,7 @@ void igvEscena3D::escalar_objeto ( double factor )
 {  glPushMatrix ();
    glLoadIdentity ();
    glMultMatrixf ( S1[objetoSeleccionado] );
+   glScalef ( factor, factor, factor );
    glScalef ( factor, factor, factor );
    glGetFloatv ( GL_MODELVIEW_MATRIX, S1[objetoSeleccionado] );
    glPopMatrix ();
@@ -253,5 +262,47 @@ void igvEscena3D::pintar_tuberia ()
    glPopMatrix ();
 }
 
+void igvEscena3D::pintar_chuche ()
+{  GLfloat blanco[] = { 1.0, 1.0, 1.0, 1.0 };
 
+   // ---- Palo (cilindro blanco) ----
+   glMaterialfv ( GL_FRONT, GL_DIFFUSE, blanco );
+
+   GLUquadricObj *palo = gluNewQuadric ();
+   gluQuadricDrawStyle ( palo, GLU_FILL );
+   gluQuadricNormals ( palo, GLU_SMOOTH );
+
+   glPushMatrix ();
+   glTranslatef ( 0, 0, -1.0 );
+   gluCylinder ( palo, 0.05, 0.05, 1.5, 12, 12 );
+   glPopMatrix ();
+
+   gluDeleteQuadric ( palo );
+
+   // ---- Caramelo (esfera mitad roja, mitad azul) ----
+   GLfloat rojoVivo[] = { 1.0, 0.0, 0.0, 1.0 }; // rojo puro y saturado
+   GLfloat azulVivo[] = { 0.0, 0.3, 1.0, 1.0 }; // azul más claro/vivo, distinto del azul del eje Z
+
+   glPushMatrix ();
+   glTranslatef ( 0, 0, 0.5 );
+
+   double planoArriba[4]  = { 0, 0,  1, 0 }; // recorta todo lo que tenga z < 0 (deja solo z >= 0)
+   double planoAbajo[4]   = { 0, 0, -1, 0 }; // recorta todo lo que tenga z > 0 (deja solo z <= 0)
+
+   // Mitad roja (z >= 0)
+   glMaterialfv ( GL_FRONT, GL_DIFFUSE, rojoVivo );
+   glClipPlane ( GL_CLIP_PLANE0, planoArriba );
+   glEnable ( GL_CLIP_PLANE0 );
+   glutSolidSphere ( 0.35, 20, 20 );
+   glDisable ( GL_CLIP_PLANE0 );
+
+   // Mitad azul (z <= 0)
+   glMaterialfv ( GL_FRONT, GL_DIFFUSE, azulVivo );
+   glClipPlane ( GL_CLIP_PLANE0, planoAbajo );
+   glEnable ( GL_CLIP_PLANE0 );
+   glutSolidSphere ( 0.35, 20, 20 );
+   glDisable ( GL_CLIP_PLANE0 );
+
+   glPopMatrix ();
+}
 

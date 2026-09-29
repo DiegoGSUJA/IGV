@@ -67,6 +67,9 @@ class igvEscena3D
       //OBJETO 3
       void pintar_tubo ();
       void pintar_tuberia();
+
+      //OBJETO 4
+      void pintar_chuche();
 };
 
 #endif   // __IGVESCENA3D

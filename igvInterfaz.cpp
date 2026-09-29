@@ -13,12 +13,12 @@ igvInterfaz& igvInterfaz::getInstancia ()
 }
 
 void igvInterfaz::crear_mundo ()
-{  p0 = igvPunto3D ( 3.0, 2.0, 4 );
-   r = igvPunto3D ( 0, 0, 0 );
-   V = igvPunto3D ( 0, 1.0, 0 );
+{  p0 = igvPunto3D ( 3.0, 2.0, 4 ); //Pos
+   r = igvPunto3D ( 0, 0, 0 ); // Punto referencia
+   V = igvPunto3D ( 0, 1.0, 0 ); // vector arriba
 
    _instancia->camara.set ( IGV_PARALELA, p0, r, V, -1 * 3, 1 * 3, -1 * 3, 1 * 3, 1, 200 );
-   // camara.set(...) ya sincroniza internamente radioOrbita/acimut/elevacion
+   // camara.set(...) ya sincroniza internamente radioOrbita/acimut/elevacion //Ventana
 
    double d = sqrt ( p0[X]*p0[X] + p0[Y]*p0[Y] + p0[Z]*p0[Z] ); // misma distancia que la vista principal
    _instancia->camaraCenital.set ( IGV_PARALELA

@@ -72,8 +72,8 @@ void igvCamara::aplicar ()
    }
 
    glMatrixMode ( GL_MODELVIEW );
-   glLoadIdentity ();
-   gluLookAt ( P0[X], P0[Y], P0[Z], r[X], r[Y], r[Z], V[X], V[Y], V[Z] );
+   glLoadIdentity (); //Carga la identidad
+   gluLookAt ( P0[X], P0[Y], P0[Z], r[X], r[Y], r[Z], V[X], V[Y], V[Z] ); //Matriz para la camara
 }
 
 void igvCamara::zoom ( double factor )
